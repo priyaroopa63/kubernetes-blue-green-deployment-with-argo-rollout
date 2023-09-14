@@ -3,9 +3,9 @@ kind: Rollout
 metadata:
   name: rollout-bluegreen
 annotations:
-    argocd.argoproj.io/sync-options: PruneLast=true
-    argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/sync-wave: "2"
+    #argocd.argoproj.io/sync-options: PruneLast=true
+    #argocd.argoproj.io/hook: Sync
+    #argocd.argoproj.io/sync-wave: "2"
 spec:
   replicas: 2
   revisionHistoryLimit: 2
@@ -21,7 +21,7 @@ spec:
       - name: rollouts-demo
         # image: argoproj/rollouts-demo:bluee
         # image: argoproj/rollouts-demo:green
-        image: nginx
+        image: nginx:1.25
         imagePullPolicy: Always
         resources:
           requests:
